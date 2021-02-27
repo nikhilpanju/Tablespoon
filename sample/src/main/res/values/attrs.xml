@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="bool_attr" format="boolean" />
+    <attr name="color_state_attr" format="color" />
+    <attr name="color_attr" format="color" />
+    <attr name="dimension_int_attr" format="dimension" />
+    <attr name="dimension_float_attr" format="dimension" />
+    <attr name="drawable_attr" format="reference" />
+    <attr name="enum_attr" format="enum">
+        <enum name="enum5" value="5" />
+        <enum name="enum10" value="10" />
+        <enum name="enum15" value="15" />
+    </attr>
+    <attr name="flags_attr" format="flags">
+        <flag name="flag5" value="5" />
+        <flag name="flag10" value="10" />
+        <flag name="flag15" value="15" />
+    </attr> <!-- -->
+    <attr name="float_attr" format="float" />
+    <attr name="fraction_attr" format="fraction" /> <!-- -->
+    <attr name="integer_attr" format="integer" />
+    <attr name="reference_attr" format="reference" /> <!-- -->
+    <attr name="string_attr" format="string" />
+
+    <declare-styleable name="CustomView">
+        <attr name="bool_attr" />
+        <attr name="color_state_attr" />
+        <attr name="color_attr" />
+        <attr name="dimension_int_attr" />
+        <attr name="dimension_float_attr" />
+        <attr name="drawable_attr" />
+        <attr name="enum_attr" />
+        <attr name="flags_attr" />
+        <attr name="float_attr" />
+        <attr name="fraction_attr" />
+        <attr name="integer_attr" />
+        <attr name="reference_attr" />
+        <attr name="string_attr" />
+    </declare-styleable>
+
+    <declare-styleable name="SomeOtherView">
+        <attr name="bool_attr" />
+        <attr name="color_state_attr" />
+        <attr name="color_attr" />
+        <attr name="dimension_int_attr" />
+        <attr name="dimension_float_attr" />
+        <attr name="drawable_attr" />
+        <attr name="enum_attr" />
+        <attr name="flags_attr" />
+        <attr name="float_attr" />
+        <attr name="fraction_attr" />
+        <attr name="integer_attr" />
+        <attr name="reference_attr" />
+        <attr name="string_attr" />
+    </declare-styleable>
+</resources>

@@ -1,0 +1,5 @@
+include ':tablespoon-processor'
+include ':tablespoon-annotations'
+include ':tablespoon'
+include ':sample'
+rootProject.name = "Tablespoon"
