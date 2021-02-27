@@ -4,17 +4,17 @@ Tablespoon *(creatively named after Dagger and Butterknife)* helps you bind atrr
 ```kotlin
 class CustomView (...) : View(...) {
 
-	@ColorAttr(R.styleable.CustomView_bgColor)
-	var bgColor: Int = Color.RED
+  @ColorAttr(R.styleable.CustomView_bgColor)
+  var bgColor: Int = Color.RED
 
-	@DimensionAttr(R.styleable.CustomView_radius)
-	var radius: Float = 0f
+  @DimensionAttr(R.styleable.CustomView_radius)
+  var radius: Float = 0f
 
-	var text: String by dynamicAttr("") // Auto updates View when being set
+  var text: String by dynamicAttr("") // Auto updates View when being set
 
-	init {
-		TableSpoon.init(this, attrs, R.styleable.CustomView)
-	}
+  init {
+    TableSpoon.init(this, attrs, R.styleable.CustomView)
+  }
 }
 ```
 
@@ -24,10 +24,10 @@ class CustomView (...) : View(...) {
 ```kotlin
 val typedArray = view.context.theme.obtainStyledAttributes(...)
 try {
-	radius = typedArray.getDimension(...)
-	// do more with typedArray...
+  radius = typedArray.getDimension(...)
+  // do more with typedArray...
 } finally {
-	a.recycle()
+  a.recycle()
 }
 ```
 2. Make your properties dynamic by using the `dynamicAttr` extension. When these properties are updated, the view is automatically updated by calling `requestLayout()` and `invalidate()` on the View.
@@ -44,12 +44,12 @@ dependencies {
 From Android Gradle Plugin 5.0 onwards (yet to be released), resource IDs (any `R.xyz` value) will be non final. To circument this, add [Butterknife's gradle plugin](https://github.com/JakeWharton/butterknife#library-projects) to your `buildscript`.
 ```groovy
 buildscript {
-	repositories {
-		mavenCentral()
-	}
-	dependencies {
-		classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
-	}
+  repositories {
+    mavenCentral()
+  }
+  dependencies {
+    classpath 'com.jakewharton:butterknife-gradle-plugin:10.1.0'
+  }
 }
 ```
 
@@ -73,11 +73,11 @@ First, all the attributes must be declared in `res/values/attrs.xml`. For exampl
 
 ```xml
 <resources>
-	<declare-styleable name="CustomView">
-		<attr name="bgColor" format="color" />
-		<attr name="radius" format="dimension" />
-		<attr name="icon" format="reference" />
-	</declare-styleable>
+  <declare-styleable name="CustomView">
+    <attr name="bgColor" format="color" />
+    <attr name="radius" format="dimension" />
+    <attr name="icon" format="reference" />
+  </declare-styleable>
 </resources>
 ```
 
@@ -94,19 +94,19 @@ class CustomView @JvmOverloads constructor(
   attrs: AttributeSet? = null
 ) : View(context, attrs, defStyleAttr) {
 
-	@ColorAttr(R.styleable.CustomView_bgColor)
-	var bgColor: Int = Color.RED // RED is default value
+  @ColorAttr(R.styleable.CustomView_bgColor)
+  var bgColor: Int = Color.RED // RED is default value
 
-	@DimensionAttr(R.styleable.CustomView_radius)
-	var radius: Float = 0f // 0f is default value
+  @DimensionAttr(R.styleable.CustomView_radius)
+  var radius: Float = 0f // 0f is default value
 
-	// dynamic attributes auto update your view when they are updated
-	@delegate:DrawableAttr(R.styleable.CustomView_icon)
-	var icon: Drawable? by dynamicDrawableAttr(null)
+  // dynamic attributes auto update your view when they are updated
+  @delegate:DrawableAttr(R.styleable.CustomView_icon)
+  var icon: Drawable? by dynamicDrawableAttr(null)
 
-	init {
-		TableSpoon.init(this, attrs, R.styleable.CustomView)
-	}
+  init {
+    TableSpoon.init(this, attrs, R.styleable.CustomView)
+  }
 }
 ```
 
@@ -122,18 +122,18 @@ class CustomView @JvmOverloads constructor(
   defStyleRes: Int = 0,
 ) : View(context, attrs, defStyleAttr, defStyleRes) {
 
-	var fullName: String? = null
+  var fullName: String? = null
 
-	init {
-		TableSpoon.init(this, attrs, R.styleable.CustomView, defStyleAttr, defStyleRes) {
-			// this block is called using: TypedArray.() -> Unit
+  init {
+    TableSpoon.init(this, attrs, R.styleable.CustomView, defStyleAttr, defStyleRes) {
+      // this block is called using: TypedArray.() -> Unit
 
-			fullName = getString(R.styleable.CustomView_firstName) +
-						  getString(R.styleable.CustomView_lastName)
+      fullName = getString(R.styleable.CustomView_firstName) +
+        getString(R.styleable.CustomView_lastName)
 
-			// ... any other operation on TypedArray before it's recycled
-		}
-	}
+      // ... any other operation on TypedArray before it's recycled
+    }
+  }
 }
 ```
 
@@ -145,9 +145,9 @@ These are properties that will automatically redraw the view when updated.
 var bgColor: Int by dynamicIntAttr(Color.RED) // RED is default value
 
 fun makeBgGreen() {
-	// updating bgColor here will automatically update the view by
-	// calling the view's requestLayout and invalidate methods
-	bgColor = Color.GREEN
+  // updating bgColor here will automatically update the view by
+  // calling the view's requestLayout and invalidate methods
+  bgColor = Color.GREEN
 }
 ```
 > **Note:** When using dynamic properties with annotations, the prefix `@delegate:` must be used before the annotation so that the delegate can be targeted.
@@ -159,12 +159,12 @@ fun makeBgGreen() {
 - You can also supply a lambda which will be called before updating the view (acts like an `Observable` delegate).
 ```kotlin
 var stringAttr: String by dynamicStringAttr(
-	initialValue = "default string",
-	invalidate = true, // default is true
-	requestLayout = false // default is true
+  initialValue = "default string",
+  invalidate = true, // default is true
+  requestLayout = false // default is true
 ) { newString ->
-	// this block is called before the view is updated
-	// in case some pre-operations need to be performed
+  // this block is called before the view is updated
+  // in case some pre-operations need to be performed
 }
 
 ```
