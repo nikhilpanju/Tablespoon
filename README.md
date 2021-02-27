@@ -1,6 +1,6 @@
 # Tablespoon
 
-Tablespoon *(creatively named after Dagger and Butterknife)* helps you bind atrributes easily in your custom views using annotations to generate boilerplate code.
+Tablespoon *(creatively named after Dagger and Butterknife)* helps you bind attributes easily in your custom views using annotations to generate boilerplate code.
 ```kotlin
 class CustomView (...) : View(...) {
 
@@ -37,11 +37,11 @@ You can install Tablespoon by adding this to your build.gradle file:
 
 ```groovy
 dependencies {
-  implementation 'club.cred.android:synth:1.0.0'
+  // TODO
 }
 ```
 #### Limitation
-From Android Gradle Plugin 5.0 onwards (yet to be released), resource IDs (any `R.xyz` value) will be non final. To circument this, add [Butterknife's gradle plugin](https://github.com/JakeWharton/butterknife#library-projects) to your `buildscript`.
+From Android Gradle Plugin 5.0 onwards (yet to be released), resource IDs (any `R.xyz` value) will be non final. To circumvent this, add [Butterknife's gradle plugin](https://github.com/JakeWharton/butterknife#library-projects) to your `buildscript`.
 ```groovy
 buildscript {
   repositories {
