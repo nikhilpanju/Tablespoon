@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nikhilpanju.tablespoon
+package com.nikhilpanju.tablespoonprocessor
 
 import com.nikhilpanju.tablespoon.annotations.BooleanAttr
 import com.nikhilpanju.tablespoon.annotations.ColorAttr

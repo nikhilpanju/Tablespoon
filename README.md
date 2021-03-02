@@ -37,7 +37,8 @@ You can install Tablespoon by adding this to your build.gradle file:
 
 ```groovy
 dependencies {
-  // TODO
+    implementation 'com.nikhilpanju:tablespoon:1.0.2'
+    kapt 'com.nikhilpanju:tablespoon-processor:1.0.2'
 }
 ```
 #### Limitation

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nikhilpanju.tablespoon
+package com.nikhilpanju.tablespoonprocessor
 
 internal const val KAPT_KOTLIN_GENERATED_OPTION_NAME = "kapt.kotlin.generated"
 internal const val COLOR_STATE_LIST_TYPE = "android.content.res.ColorStateList"

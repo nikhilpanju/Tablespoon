@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nikhilpanju.tablespoon
+package com.nikhilpanju.tablespoonprocessor
 
 import com.google.auto.common.SuperficialValidation
 import com.nikhilpanju.tablespoon.annotations.BooleanAttr

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nikhilpanju.tablespoon
+package com.nikhilpanju.tablespoonprocessor
 
 import com.sun.tools.javac.code.Symbol
 import com.sun.tools.javac.code.Symbol.VarSymbol

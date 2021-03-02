@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nikhilpanju.tablespoon
+package com.nikhilpanju.tablespoonprocessor
 
 import javax.annotation.processing.ProcessingEnvironment
 import javax.lang.model.element.Element
